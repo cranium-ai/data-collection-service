@@ -6,7 +6,6 @@ import plotly.express as px
 
 st.image("logo.png", width=300)
 st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
-st.title(" ")
 # Load data 
 input_df = pd.read_csv("metrics.csv") 
 #select data sources
@@ -39,7 +38,6 @@ st.write(fig)
 st.dataframe(selected_ds_data[["source_data", "last_refresh_date","maturity_threat_level"]],hide_index=True,)
 
 #Bar Chart
-st.title(" ")
 st.title(" ")
 
 st.subheader("Maturity level of threat intelligence") 
