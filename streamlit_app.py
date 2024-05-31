@@ -4,14 +4,15 @@ import streamlit  as st
 import pandas as pd 
 import plotly.express as px
 
-st.image('logo.png', width=300)
+st.image("logo.png", width=300)
 st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
-
+st.title(" ")
+st.title(" ")
 # Load data 
 input_df = pd.read_csv("metrics.csv") 
 #select data sources
-selected_ds_data = input_df[["source_data","count","last_refresh_date","maturity_threat"]].reset_index() 
-chart_data = input_df[["source_data","maturity_threat"]].reset_index() 
+selected_ds_data = input_df[["source_data","count","last_refresh_date","maturity_threat_level"]].reset_index() 
+chart_data = input_df[["source_data","maturity_threat_level"]].reset_index() 
 
 #Pie Chart
 # st.subheader('List of Data Sources')
@@ -23,32 +24,45 @@ chart_data = input_df[["source_data","maturity_threat"]].reset_index()
 # fig.update_layout(width=600, height=600, paper_bgcolor='#FFFFED', font=dict(color='#383635', size=15))
 # fig.update_traces(textposition='inside', textinfo='percent+label')
 # st.write(fig)
- 
+
+
 #Donut Chart
-st.subheader('List of Data Sources')
+st.subheader("Data Sources in Threat Intelligence DB ") 
 fig=px.pie(selected_ds_data, values = 'count', names='source_data', hover_name='source_data', 
            hover_data=['last_refresh_date'], labels={'last_refresh_date':'Last Updated date'},
-           color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
+#           color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
+            color_discrete_sequence=[ "#42B6F4", "#4625B4","#B32ED3", "#0C1BD0"], hole=.3)
 fig.update_layout(width=600, height=600, paper_bgcolor='#FFFFED', font=dict(color='#383635', size=15))
 fig.update_traces(textposition='inside', textinfo='percent+label')
 st.write(fig)
 
 #Table to represent data
-st.dataframe(selected_ds_data[["source_data", "last_refresh_date","maturity_threat"]],hide_index=True,)
+st.dataframe(selected_ds_data[["source_data", "last_refresh_date","maturity_threat_level"]],hide_index=True,)
 
 #Bar Chart
 st.title(" ")
 st.title(" ")
 
-st.subheader("Data Sources by Maturity level of threat intelligence") 
+st.subheader("Maturity level of threat intelligence") 
 #Donut Chart
-fig=px.pie(selected_ds_data, values = 'count', names='source_data', hover_name='source_data', 
-         hover_data=['maturity_threat'], labels={'maturity_threat':'maturity_threat'},
- #        color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
+fig=px.pie(selected_ds_data, values = 'count', names='maturity_threat_level', hover_name='source_data', 
+         hover_data=['last_refresh_date'], labels={'last_refresh_date':'Last Updated date'},
+ #       color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
          color_discrete_sequence=[ "#42B6F4", "#4625B4","#B32ED3", "#0C1BD0"], hole=.3)
 fig.update_layout(width=600, height=600, paper_bgcolor='#FFFFED', font=dict(color='#383635', size=15))
 fig.update_traces(textposition='inside', textinfo='percent+label')
 st.write(fig)
+
+
+# st.subheader("Data Sources by Maturity level of threat intelligence") 
+# #Donut Chart
+# fig=px.pie(selected_ds_data, values = 'count', names='source_data', hover_name='source_data', 
+#          hover_data=['maturity_threat_level'], labels={'maturity_threat_level':'maturity_threat_level'},
+#  #        color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
+#          color_discrete_sequence=[ "#42B6F4", "#4625B4","#B32ED3", "#0C1BD0"], hole=.3)
+# fig.update_layout(width=600, height=600, paper_bgcolor='#FFFFED', font=dict(color='#383635', size=15))
+# fig.update_traces(textposition='inside', textinfo='percent+label')
+# st.write(fig)
 
 #st.bar_chart(chart_data, x="source_data", y="maturity_threat", color="#90EE90", width=200, height=300)
 
