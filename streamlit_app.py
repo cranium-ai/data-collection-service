@@ -4,7 +4,7 @@ import streamlit  as st
 import pandas as pd 
 import plotly.express as px
 
-st.image('logo.png', caption="Metrics Dashboard for Threat intelligence DB")
+st.image('logo.png', width=300, caption="Metrics Dashboard for Threat intelligence DB")
 #st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
 
 # Load data 
