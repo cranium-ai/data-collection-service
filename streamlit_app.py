@@ -24,7 +24,7 @@ chart_data = input_df[["source_data","maturity_threat"]].reset_index()
 # st.write(fig)
 
 
-
+st.image(logo.png)
 
 #Donut Chart
 st.subheader('List of Data Sources')
