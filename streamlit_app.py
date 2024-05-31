@@ -7,7 +7,6 @@ import plotly.express as px
 st.image("logo.png", width=300)
 st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
 st.title(" ")
-st.title(" ")
 # Load data 
 input_df = pd.read_csv("metrics.csv") 
 #select data sources
