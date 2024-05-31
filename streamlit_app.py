@@ -6,6 +6,7 @@ import plotly.express as px
 
 st.image("logo.png", width=300)
 st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
+st.title(" ") 
 # Load data 
 input_df = pd.read_csv("metrics.csv") 
 #select data sources
@@ -25,7 +26,7 @@ chart_data = input_df[["source_data","maturity_threat_level"]].reset_index()
 
 
 #Donut Chart
-st.subheader("Data Sources in Threat Intelligence DB ") 
+st.subheader("List of Data Sources") 
 fig=px.pie(selected_ds_data, values = 'count', names='source_data', hover_name='source_data', 
            hover_data=['last_refresh_date'], labels={'last_refresh_date':'Last Updated date'},
 #           color_discrete_sequence=px.colors.sequential.RdBu, hole=.3)
@@ -38,6 +39,7 @@ st.write(fig)
 st.dataframe(selected_ds_data[["source_data", "last_refresh_date","maturity_threat_level"]],hide_index=True,)
 
 #Bar Chart
+st.title(" ")
 st.title(" ")
 
 st.subheader("Maturity level of threat intelligence") 
