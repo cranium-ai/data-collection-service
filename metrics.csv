@@ -1,0 +1,5 @@
+source_data,count,maturity_threat,last_refresh_date
+ArxivAbstract,172,low,5/30/24
+Owasp,10,high,5/20/24
+MitreAtlas,51,high,5/20/24
+MitreAttack,96,high,5/20/24
