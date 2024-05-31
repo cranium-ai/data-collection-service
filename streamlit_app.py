@@ -4,6 +4,7 @@ import streamlit  as st
 import pandas as pd 
 import plotly.express as px
 
+st.image('logo.png')
 st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
 
 # Load data 
@@ -22,10 +23,7 @@ chart_data = input_df[["source_data","maturity_threat"]].reset_index()
 # fig.update_layout(width=600, height=600, paper_bgcolor='#FFFFED', font=dict(color='#383635', size=15))
 # fig.update_traces(textposition='inside', textinfo='percent+label')
 # st.write(fig)
-
-
-st.image('logo.png')
-
+ 
 #Donut Chart
 st.subheader('List of Data Sources')
 fig=px.pie(selected_ds_data, values = 'count', names='source_data', hover_name='source_data', 
