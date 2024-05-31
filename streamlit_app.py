@@ -4,8 +4,8 @@ import streamlit  as st
 import pandas as pd 
 import plotly.express as px
 
-st.image('logo.png')
-st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
+st.image('logo.png', caption="Metrics Dashboard for Threat intelligence DB")
+#st.header('Metrics Dashboard for Threat intelligence DB \n\n') 
 
 # Load data 
 input_df = pd.read_csv("metrics.csv") 
