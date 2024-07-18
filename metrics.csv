@@ -1,6 +1,6 @@
 source_data,count,maturity_threat_level,last_refresh_date
-ArxivAbstract,172,low,5/30/24
-Owasp,10,high,5/20/24
-MitreAtlas,51,high,5/20/24
-MitreAttack,96,high,5/20/24
-Arxiv Sanity,10,Medium,5/20/24
+ArxivAbstract,1500,low,7/16/24
+Owasp,10,high,7/16/24
+MitreAtlas,52,high,7/16/24
+MitreAttack,665,high,7/16/24
+Arxiv Sanity,10,Medium,7/16/24
